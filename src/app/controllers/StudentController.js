@@ -91,7 +91,8 @@ class StudentController {
     const { email } = req.body;
 
     // procura aluno no banco de dados pelo ID informado no req.studentId
-    const student = await Student.findByPk(req.studentId);
+    const student = await Student.findByPk(req.params.id);
+    // const student = await Student.findOne({ where: { email } });
 
     // verificar se o email é diferente do que esta no cadastro
     if (email != student.email) {
@@ -100,12 +101,12 @@ class StudentController {
 
       if (studentExists) {
         // retorna erro de aluno ja existe
-        return res.status(400).json({ error: 'Student already exists.' });
+        return res.status(400).json({ error: 'Email student already exists.' });
       }
     }
 
     // pega os valores e atualiza o cadastro no banco
-    const { id, name, age, weight, height } = await Student.update(req.body);
+    const { id, name, age, weight, height } = await student.update(req.body);
 
     // retorna as informações do aluno
     return res.json({

@@ -38,7 +38,7 @@ routes.put('/users', UserController.update);
 routes.post('/students', StudentController.store);
 
 // rota para editar aluno
-routes.put('/students', StudentController.update);
+routes.put('/students/:id', StudentController.update);
 
 // exporta as rotas criadas
 export default routes;
