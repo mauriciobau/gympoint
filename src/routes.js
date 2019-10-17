@@ -1,0 +1,44 @@
+// ARQUIVO DE ROTEAMENTO
+
+// importa o roteamento do express para poder criar as rotas do sistema
+import { Router } from 'express';
+
+// importa a controller de Usuário
+import UserController from './app/controllers/UserController';
+
+// importa a controller de Usuário
+import StudentController from './app/controllers/StudentController';
+
+// importa a controlle de Seção / autenticação
+import SessionController from './app/controllers/SessionController';
+
+// importa o middleware de autenticação
+import authMiddleware from './app/middlewares/auth';
+
+// variável para criar as rotas
+const routes = new Router();
+
+// variável para realizar o upload
+// const upload = multer(multerConfig);
+
+// rota para logar
+routes.post('/sessions', SessionController.store);
+
+// rota para criar usuário
+routes.post('/users', UserController.store);
+
+// carrega rota do middleware de autenticação, as rotas abaixo desta, só serão
+// acessiveis se o usuário estiver logado.
+routes.use(authMiddleware);
+
+// rota para editar usuários
+routes.put('/users', UserController.update);
+
+// rota para criar aluno
+routes.post('/students', StudentController.store);
+
+// rota para editar aluno
+routes.put('/students', StudentController.update);
+
+// exporta as rotas criadas
+export default routes;
