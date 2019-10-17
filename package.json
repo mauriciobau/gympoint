@@ -2,6 +2,8 @@
   "name": "gympoint",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "git@github.com:mauriciobau/back-end-GoBarber.git",
+  "author": "Maurício Baú <mauricio.a.bau@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js",
