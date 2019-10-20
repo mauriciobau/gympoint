@@ -1,3 +1,6 @@
+// importar dotenv para carregar arquivo de variáveis de ambiente
+import 'dotenv/config';
+
 // importando o express para iniciar a aplicação
 import express from 'express';
 
