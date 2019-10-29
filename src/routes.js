@@ -12,6 +12,9 @@ import StudentController from './app/controllers/StudentController';
 // importa a controller de Plano
 import PlanController from './app/controllers/PlanController';
 
+// importa a controller de Plano
+import EnrollmentController from './app/controllers/EnrollmentController';
+
 // importa a controlle de Seção / autenticação
 import SessionController from './app/controllers/SessionController';
 
@@ -54,6 +57,15 @@ routes.put('/plans/:id', PlanController.update);
 
 // rota para deletar plano
 routes.delete('/plans/:id', PlanController.delete);
+
+// rota para crirar matriculas
+routes.post('/enrollments', EnrollmentController.store);
+
+// rota para listar matriculas
+routes.get('/enrollments', EnrollmentController.index);
+
+// rota para editar matriculas
+routes.put('/enrollments/:id', EnrollmentController.update);
 
 // exporta as rotas criadas
 export default routes;

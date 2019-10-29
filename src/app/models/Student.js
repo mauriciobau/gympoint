@@ -10,8 +10,8 @@ class Student extends Model {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
         age: Sequelize.INTEGER,
-        weight: Sequelize.DECIMAL,
-        height: Sequelize.DECIMAL,
+        weight: Sequelize.DECIMAL(13, 2),
+        height: Sequelize.DECIMAL(13, 2),
       },
       // passa o objeto com o sequelize
       {
