@@ -13,12 +13,18 @@ import Plan from '../app/models/Plan';
 // importa model Enrollment
 import Enrollment from '../app/models/Enrollment';
 
+// importa model Checkin
+import Checkin from '../app/models/Checkin';
+
+// importa model HelpOrder
+import HelpOrder from '../app/models/HelpOrder';
+
 // importa configurações do banco de dados
 import databaseConfig from '../config/database';
 
 // cria um array com todos os models
 // const models = [User, File, Appointment ];
-const models = [User, Student, Plan, Enrollment];
+const models = [User, Student, Plan, Enrollment, Checkin, HelpOrder];
 
 class Database {
   constructor() {

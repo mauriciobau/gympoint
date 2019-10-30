@@ -27,7 +27,7 @@ class PlanController {
 
     // procura um plano que tenha o titulo informado em req.body.title
     const planExists = await Plan.findOne({
-      where: { title: req.body.title },
+      where: { title: req.body.title, canceled_at: null },
     });
 
     // verificar se o plano ja existe
@@ -48,7 +48,9 @@ class PlanController {
   }
 
   async index(req, res) {
-    const plans = await Plan.findAll();
+    const plans = await Plan.findAll({
+      where: { canceled_at: null },
+    });
 
     return res.status(200).json(plans);
   }
@@ -80,7 +82,9 @@ class PlanController {
     // verificar se o titule é diferente do que esta no cadastro
     if (title != plan.title) {
       // busca title no banco de dados para verificar se ja existe.
-      const planExists = await Plan.findOne({ where: { title } });
+      const planExists = await Plan.findOne({
+        where: { title, canceled_at: null },
+      });
 
       if (planExists) {
         // retorna erro de plano ja existe
@@ -114,7 +118,11 @@ class PlanController {
       });
     }
 
-    await Plan.destroy({ where: { id } });
+    // await Plan.destroy({ where: { id } });
+
+    planExists.canceled_at = new Date();
+
+    await planExists.save();
 
     return res.status(200).json();
   }

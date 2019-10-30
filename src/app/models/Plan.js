@@ -9,7 +9,7 @@ class Plan extends Model {
       {
         title: Sequelize.STRING,
         duration: Sequelize.INTEGER,
-        price: Sequelize.DECIMAL(13, 2),
+        price: Sequelize.DECIMAL,
       },
       // passa o objeto com o sequelize
       {

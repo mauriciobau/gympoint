@@ -1,17 +1,13 @@
 // importa Sequelize e  Model do sequelize
 import Sequelize, { Model } from 'sequelize';
 
-class Student extends Model {
+class Checkin extends Model {
   // metodo chamado automaticamente pelo sequelize
   static init(sequelize) {
     // classe pai de Model
     super.init(
       {
-        name: Sequelize.STRING,
-        email: Sequelize.STRING,
-        age: Sequelize.INTEGER,
-        weight: Sequelize.DECIMAL,
-        height: Sequelize.DECIMAL,
+        student_id: Sequelize.INTEGER,
       },
       // passa o objeto com o sequelize
       {
@@ -24,5 +20,5 @@ class Student extends Model {
   }
 }
 
-// exporta aluno
-export default Student;
+// exporta checkin
+export default Checkin;

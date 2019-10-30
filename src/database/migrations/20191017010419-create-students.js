@@ -36,6 +36,9 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
+      canceled_at: {
+        type: Sequelize.DATE,
+      },
     });
   },
 
